@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://certificado.skill.edu.pe/A25-CAPJAVA1-1 -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="robots" content="noindex, nofollow">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skill - Certificaciones</title>
+        
+        <meta name="title" content="Certificaciones Skill">
+        <meta name="description" content="Pagina de certificaciones Skill">
+        <link href="./Skill - Certificaciones_files/style.css" rel="stylesheet" type="text/css">
+      <!-- ahora todo el estilo (fuentes, fondo, layout) proviene de Skill - Certificaciones_files/style.css -->
+            </head>
+    <body class="pageValidate">
+        <div class="wrapper">
+            <header>
+    <div class="section__container">
+        <div class="header__content">
+            <div class="header__logo">
+                <img src="./Skill - Certificaciones_files/logo.png">
+            </div>
+            <div class="header__return">
+                <a href="index.html">
+                    <img src="./Skill - Certificaciones_files/btn_return.png">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="validateSuccess">
+        <div class="section__container">
+            <div class="validateSuccess__content">
+                <div class="validateSuccess__left">
+                    <div class="validate__header">
+                        <div><h1>CERTIFICADO</h1></div>
+                        <div><img src="./Skill - Certificaciones_files/logo.png"></div>
+
+                    </div>
+                </div>
+                <div class="validateSuccess__right">
+                    <h2>¡FELICITACIONES!</h2>
+                    <p>
+                        <span class="gothamBold">Otorgado a:</span>
+                        <strong id="certName" class="gothamBook">JOSEPH SANTUR MOGOLLÓN</strong>
+                    </p>
+                    <p>
+                        <span class="gothamBold">CURSO:</span>
+                        <strong id="certCourse" class="gothamBook">ACTUALIZACIÓN EN PROGRAMACIÓN CON JAVA</strong>
+                    </p>
+                    <div class="dates">
+                        <div class="date__left">
+                            <p>
+                                <strong class="gothamBold">Fecha de entrega</strong>
+                                <span id="certDelivery" class="gothamBook">03 Octubre 2025</span>
+                            </p>
+                        </div>
+                        <div class="date__right">
+                            <p>
+                                <strong class="gothamBold">Fecha de expiración</strong>
+                                <span id="certExpiry" class="gothamBook">No expira</span>
+                            </p>
+                        </div>
+                    </div>
+                    <a id="certPdfLink" class="btn btn__pdf" href="./certificado-actualizacion-en-programacion-con-java.pdf" download="certificado-actualizacion-en-programacion-con-java.pdf">
+                        DESCARGAR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    
+    
+       <script>
+           // Si la página recibe ?code=... setea los datos correspondientes según README.md
+           (function(){
+               var certMap = {
+                   "A25-MPSBDSQL1-1": {
+                       name: "JOSEPH SANTUR MOGOLLÓN",
+                       course: "ACTUALIZACIÓN EN GESTIÓN DE BASE DE DATOS CON SQL",
+                       delivery: "20 Junio 2025",
+                       expiry: "No expira",
+                       pdfHref: "./Skill - Certificaciones_files/sql.pdf",
+                       pdfDownload: "sql.pdf"
+                   },
+                   "A25-PYTHON05-42": {
+                       name: "JOSEPH SANTUR MOGOLLÓN",
+                       course: "ACTUALIZACIÓN EN PYTHON 3.13",
+                       delivery: "04 Agosto 2025",
+                       expiry: "No expira",
+                       pdfHref: "./Skill - Certificaciones_files/python-jsantur.pdf",
+                       pdfDownload: "python-jsantur.pdf"
+                   },
+                   "A25-CAPVAJR1-1": {
+                       name: "JOSEPH SANTUR MOGOLLÓN",
+                       course: "ACTUALIZACIÓN EN ANÁLISIS DE DATOS CON R",
+                       delivery: "12 Agosto 2025",
+                       expiry: "No expira",
+                       pdfHref: "./Skill - Certificaciones_files/r-jsantur.pdf",
+                       pdfDownload: "r-jsantur.pdf"
+                   },
+                   "A2-CAPJAVA2-1": {
+                       name: "JOSEPH SANTUR MOGOLLÓN",
+                       course: "ACTUALIZACIÓN EN PROGRAMACIÓN CON JAVA",
+                       delivery: "10 Octubre 2025",
+                       expiry: "No expira",
+                       pdfHref: "./Skill - Certificaciones_files/java-jsantur.pdf",
+                       pdfDownload: "java-jsantur.pdf"
+                   }
+               };
+
+               function setByCode(code){
+                   if (!code) return;
+                   var data = certMap[code];
+                   if (!data) return;
+                   var nameEl = document.getElementById('certName');
+                   var courseEl = document.getElementById('certCourse');
+                   var deliveryEl = document.getElementById('certDelivery');
+                   var expiryEl = document.getElementById('certExpiry');
+                   var pdfLink = document.getElementById('certPdfLink');
+
+                   if (nameEl && data.name) nameEl.textContent = data.name;
+                   if (courseEl && data.course) courseEl.textContent = data.course;
+                   if (deliveryEl && data.delivery) deliveryEl.textContent = data.delivery;
+                   if (expiryEl && data.expiry) expiryEl.textContent = data.expiry;
+                   if (pdfLink && data.pdfHref) {
+                       pdfLink.href = data.pdfHref;
+                       if (data.pdfDownload) pdfLink.download = data.pdfDownload;
+                   }
+               }
+
+               // Leer parámetro code al cargar
+               var params = new URLSearchParams(window.location.search);
+               setByCode(params.get('code'));
+
+               // Mantener comportamiento si existe un formulario en esta página
+               var form = document.getElementById('codeForm');
+               if (form) {
+                   form.addEventListener('submit', function(e){
+                       e.preventDefault();
+                       var v = document.getElementById('codeInput').value.trim();
+                       setByCode(v);
+                   });
+               }
+           })();
+       </script>
+</body></html>

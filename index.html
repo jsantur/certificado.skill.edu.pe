@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://certificado.skill.edu.pe/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="robots" content="noindex, nofollow">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skill - Certificaciones</title>
+        
+        <meta name="title" content="Certificaciones Skill">
+        <meta name="description" content="Pagina de certificaciones Skill">
+    <link href="./Skill - Certificaciones_files/style_2.css" rel="stylesheet" type="text/css">
+        
+
+            <style>
+        .error input{
+            border-color: red;
+        }
+    </style>
+    </head>
+    <body class="certificateValidate">
+    <div class="wrapper">
+                <div class="validate">
+        <div class="validate__card">
+            <div class="validate__card__content">
+                <div class="validate__card__logo">
+                    <div class="logo">
+                        <img src="./Skill - Certificaciones_files/logo-white.png">
+                    </div>
+                </div>
+                <div class="validate__card__form">
+                    <div class="validate__content">
+                        <img src="./Skill - Certificaciones_files/diploma.png">
+                        <div class="validate__card__title">
+                            <h1>¡VERIFICA TU CERTIFICADO!</h1>
+                        </div>
+                        <form class="form__certificate" method="post" action="index.html">
+    <input type="hidden" name="_token" value="MgpDFVKZV8sZmOvudY1eG4uBhexOrORhVU4rqhcS">
+    <div class="form-group  ">
+        <input type="text" id="codeInput" class="form-control" name="code" value="" placeholder="Ingrese código" aria-describedby="codeError" />
+        <div id="codeError" class="form-error" style="display:none;color:#e74c3c;margin-top:8px;font-size:14px;" aria-live="polite">
+            El código no existe en nuestro sistema
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="validar" value="Validar">
+    </div>
+    <p>El código aparece en la parte inferior del certificado</p>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    
+    
+<script>
+(function(){
+  const form = document.querySelector('.form__certificate');
+  const input = document.getElementById('codeInput');
+  const error = document.getElementById('codeError');
+
+  // Mapa basado en README.md (códigos válidos)
+  const validCodes = {
+    "A25-MPSBDSQL1-1": true,
+    "A25-PYTHON05-42": true,
+    "A25-CAPVAJR1-1": true,
+    "A2-CAPJAVA2-1": true
+  };
+
+  input.addEventListener('input', () => {
+    error.style.display = 'none';
+    error.textContent = '';
+    input.classList.remove('input-error');
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const val = (input.value || '').trim();
+
+    if (!val) {
+      error.textContent = 'El campo de código es obligatorio';
+      error.style.display = 'block';
+      input.value = '';
+      input.focus();
+      return;
+    }
+
+    // Normalizar mayúsculas/minúsculas y espacios
+    const code = val.toUpperCase();
+
+    if (validCodes[code]) {
+      // Redirigir pasando el código exacto
+      window.location.href = 'Skill_Certificaciones.html?code=' + encodeURIComponent(code);
+      return;
+    }
+
+    // Si no existe: mostrar mensaje
+    error.textContent = 'El código no existe en nuestro sistema';
+    error.style.display = 'block';
+    input.value = '';
+    input.focus();
+  });
+})();
+</script>
+</body></html>
